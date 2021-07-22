@@ -6,8 +6,41 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hi</title>
+    <link rel='stylesheet' href='https://cdn.riroschool.kr/assets/lib/jquery-ui-1.12.1/jquery-ui.min.css'>
+    <script src='https://cdn.riroschool.kr/assets/lib/jquery-3.5.1.min.js'></script>
+    <script src='https://cdn.riroschool.kr/assets/lib/jquery-migrate-3.3.2.min.js'></script>
+    <script src='https://cdn.riroschool.kr/assets/lib/jquery-ui-1.12.1/jquery-ui.min.js'></script>
+    <style>
+        .chk_box{}
+        .chk_box input[type="checkbox"]{display:none;overflow:hidden;opacity:0;}
+        .chk_box input[type="checkbox"] + .used{padding:5px 10px;background:#eee;border-radius:4px;cursor:pointer;}
+        .chk_box input[type="checkbox"] + .used.on{background:#333;color:#fff;}
+    </style>
 </head>
 <body>
-Hi
+
+    <span class="chk_box">
+        <input type="checkbox" id="btn_chk">
+        <label for="btn_chk" class="used">미사용</label>
+    </span>
+
+
 </body>
+<script>
+    $(function(){
+        console.log(1);
+        $("#btn_chk").on('click', function() {
+            if ($(this).prop('checked') ){
+                console.log('checked');
+                $(this).next('.used').addClass("on").text("사용");
+
+            } else {
+                console.log('non');
+                $(this).next('.used').removeClass("on").text("미사용");
+           }
+        });
+
+
+    });
+</script>
 </html>
